@@ -1,0 +1,13 @@
+eksctl create iamserviceaccount \
+    --name external-dns \
+    --namespace default \
+    --cluster gt-terraform-eks-test \
+    --attach-policy-arn arn:aws:iam::702096644687:policy/AllowExternalDNSUpdates \
+    --approve \
+    --override-existing-serviceaccounts
+
+
+eksctl delete iamserviceaccount \
+    --name external-dns \
+    --namespace default \
+    --cluster gt-terraform-eks-test 
